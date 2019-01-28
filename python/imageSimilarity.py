@@ -1,6 +1,10 @@
 import cv2
 import urllib
 import numpy as np
+# import pandas as pd
+
+# csv_file = pd.read_csv('opportunity.csv')
+# print(csv_file[,6])
 
 def url_to_image(url):
     resp=urllib.urlopen(url)
@@ -13,5 +17,14 @@ url2 = "https://d8mkdcmng3.imgix.net/750c/pc-and-video-games-accessories-ps4-ps4
 
 image1 =url_to_image(url1)
 image2 =url_to_image(url2)
-cv2.imshow("Image", image)
+
+image1 = cv2.cvtColor(image1,cv2.COLOR_BGR2GRAY)
+image2 = cv2.cvtColor(image2,cv2.COLOR_BGR2GRAY)
+sift = cv2.SIFT()
+kp = sift.detect(image1,None)
+img1= cv2.drawKeypoints(image1,kp,flags=cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
+
+
+cv2.imshow("Image1", img1)
+cv2.imshow("Image2", image2)
 cv2.waitKey(0)
