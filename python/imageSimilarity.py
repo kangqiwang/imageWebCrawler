@@ -20,9 +20,9 @@ image2 =url_to_image(url2)
 
 image1 = cv2.cvtColor(image1,cv2.COLOR_BGR2GRAY)
 image2 = cv2.cvtColor(image2,cv2.COLOR_BGR2GRAY)
-sift = cv2.SIFT()
+sift = cv2.xfeatures2d.SIFT_create()
 kp = sift.detect(image1,None)
-img1= cv2.drawKeypoints(image1,kp,flags=cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
+img1= cv2.drawKeypoints(image1,kp,outImage=cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
 
 
 cv2.imshow("Image1", img1)
