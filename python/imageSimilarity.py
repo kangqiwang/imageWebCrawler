@@ -20,11 +20,41 @@ image2 =url_to_image(url2)
 
 image1 = cv2.cvtColor(image1,cv2.COLOR_BGR2GRAY)
 image2 = cv2.cvtColor(image2,cv2.COLOR_BGR2GRAY)
-sift = cv2.xfeatures2d.SIFT_create()
-kp = sift.detect(image1,None)
-img1= cv2.drawKeypoints(image1,kp,outImage=cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
+
+# Initiate SIFT detector
+sift=cv2.SIFT()
+
+#find the keypoints and descriptors with SIFT
+kp1, des1 =sift.detectAndCompute(image1,None)
+kp2, des2 =sift.detectAndCompute(image2,None)
+
+# BFMatcher with default params
+bf =cv2.BFMatcher()
+matches= bf.knnMatch(des1,des2,k=2)
+
+# apply ratio test
+good =[]
+for m,n in matches:
+    if(m.distance < 0.75*n.distance):
+        good.append([m])
+
+# cv.drawMatchesKnn expects list of lists as matches
+
+img3= cv2.drawMatchesKnn(image1,kp1,image2,kp2,good,flags=2)
+
+plt.imshow(img3),plt.show()
 
 
-cv2.imshow("Image1", img1)
-cv2.imshow("Image2", image2)
-cv2.waitKey(0)
+# kp1,des1 = sift.detectAndCompute(image1,None)
+# kp2,des2 = sift.detectAndCompute(image2,None)
+# bf = cv2.BFMatcher()
+# matches=bf.match(des1,des2)
+# matches=sorted(matches, key=lambda val: val.distance)
+# img3= drawMatches(img1,kp1,img2,kp2,matches[:25])
+
+# #img1= cv2.drawKeypoints(image1,kp,outImage=cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
+
+# cv2.imshow("Image1", img3)
+# #cv2.imshow("Image2", image2)
+# cv2.waitKey(0)
+# cv2.destoryWindow('Matched Features')
