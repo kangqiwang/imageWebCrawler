@@ -18,7 +18,7 @@ def similarity(matches,kp2):
     good = []
     percent=0
     for m,n in matches:
-        if m.distance < 0.90*n.distance:
+        if m.distance < 0.75*n.distance:
             good.append([m])
     percent=len(good)/len(kp2)
     return percent
