@@ -22,12 +22,17 @@ def url_to_image(url):
     return image
 
 def similarity(matches,kp2):
-    good = []
+    good = [m for (m, n) in matches if m.distance <0.75*n.distance]
     percent=0
     for m,n in matches:
         if m.distance < 0.75*n.distance:
             good.append([m])
     percent=len(good)/len(kp2)
+    # for m,n in matches:
+    #     if m.distance < 0.75*n.distance:
+    #         good.append([m])
+    #percent=len(good)/len(matches)
+
     return percent
 
 def main():
