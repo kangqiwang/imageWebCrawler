@@ -3,10 +3,17 @@ import urllib.request
 import numpy as np
 from matplotlib import pyplot as plt
 import pandas as pd
+from pathlib import Path
 
 def open_csv():
-    df=pd.read_csv('python/opportunity.csv', usecols=['supplier.image','amazon.image'])
-    return df
+    my_file=Path("python/opportunity.csv")
+    if my_file.exists():
+        df=pd.read_csv('python/opportunity.csv', usecols=['supplier.image','amazon.image'])
+        return df
+    else:
+        print('THERE ARE ERR CAN NOT FOUND FILES')
+        return 0
+
 
 def url_to_image(url):
     resp=urllib.request.urlopen(url)
