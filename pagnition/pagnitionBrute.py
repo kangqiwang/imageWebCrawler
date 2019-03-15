@@ -23,13 +23,13 @@ def pagnition():
         # pageNum=int(count/perpageCount)+1
         # if pageNum > 2:
         for i in range(21):
-            tmpurl = url +'&pageNum='+str(i+1)
+            tmpurl = url +'?pageNum='+str(i+1)
             session = HTMLSession()
             response = session.get(tmpurl)
             if response.status_code == 200:
                 tmpList.append(tmpurl)
             else:
-                continue
+                break
         print(tmpurl)
     savedf=pd.Series(tmpList)
     savedf.to_csv("pagnition/output/kamrtDeled.csv",index=False)
