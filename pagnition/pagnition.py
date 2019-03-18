@@ -4,7 +4,7 @@ import requests
 
 
 def pagnition():
-    df=pd.read_csv("pagnition/input/marvel_com_bulklist.csv",usecols=['Category URL','Product Count'])
+    df=pd.read_csv("pagnition/input/homedepot_com_bulklist.csv",usecols=['Category URL','Product Count'])
 
 
     tmpList=['url']
@@ -15,18 +15,19 @@ def pagnition():
         #     urltmp = url.split("?filter=")[0]
         #      # numbertmp=url.split("filter=")[1]
         #
-        perpageCount=30
+        perpageCount=21
         pageNum=int(count/perpageCount)+1
         # if pageNum > 2:
         for i in range(pageNum):
             if urltmp !='':
                 tmpurl = urltmp+'?sortBy=top_sellers&page='+str(i+1)
             else:
-                tmpurl = url +'#callURL=%252Fmarvel%252Fstore%252FDSIProcessWidget%253FcatalogId%253D10002%2526langId%253D-1%2526storeId%253D50051%2526templateId%253DWidth-3_4-ProductList%2526widgetName%253Ditems_listing%2526widgetObjId%253DobjItemsListing%2526sectionName%253DRight%2526initialN%253D1001152%2526navNum%253D96%2526pageCmdName%253DproductListPage%2526numDim%253D3%2526N%253D1001152%2526zoneName%253DDisneyNavigationPageZone%2526Nao%253D'+str((i+1)*96)+'&sort=sortProductsMostPopular'
+                tmpurl = url +'?Nao='+str(21*(i+1))+'&Ns=None&storeSelection=2408,2414,2409,2407,2404'
+                print(tmpurl)
                 tmpList.append(tmpurl)
 
     savedf=pd.Series(tmpList)
-    savedf.to_csv("pagnition/output/marvel_com_bulklist.csv",index=False)
+    savedf.to_csv("pagnition/output/homedepot_com_bulklist.csv",index=False)
 
 def saveToSourceMogul():
     name = "58593450d2b2122cab550ef3"
@@ -46,9 +47,9 @@ def downloadCsv():
 
 
 def getRedirectUrl():
-    df=pd.read_csv("pagnition/input/surfdome_com_bulklist.csv",usecols=['Category URL'])
+    df=pd.read_csv("pagnition/input/overtons_com_bulklist.csv",usecols=['Category URL','Product Count'])
     tmpList=[]
-    for url in df['Category URL']:
+    for url, count in zip(df['Category URL'],df['Product Count']):
         print(url)
         response=requests.get(url,allow_redirects=False)
         if response.status_code == 301:
@@ -59,6 +60,6 @@ def getRedirectUrl():
         else:
             tmpList.append(url)
     savedf = pd.Series(tmpList)
-    savedf.to_csv("pagnition/output/surfdome_com_bulklist.csv", index=False)
+    savedf.to_csv("pagnition/output/overtons_com_bulklist.csv", index=False)
 
 pagnition()
