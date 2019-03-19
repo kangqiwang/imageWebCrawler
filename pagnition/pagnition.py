@@ -4,30 +4,30 @@ import requests
 
 
 def pagnition():
-    df=pd.read_csv("pagnition/input/homedepot_com_bulklist.csv",usecols=['Category URL','Product Count'])
+    df=pd.read_csv("pagnition/input/c21stores_com.csv",usecols=['Category URL','Product Count'])
 
 
     tmpList=['url']
     for url, count in zip(df['Category URL'],df['Product Count']):
         urltmp=''
-        # numbertmp=0
-        # if "?filter=" in str(url):
-        #     urltmp = url.split("?filter=")[0]
-        #      # numbertmp=url.split("filter=")[1]
+        numbertmp=0
+        if "categories/" in str(url):
+            urltmp = url.split("categories/")[0]
+            numbertmp=url.split("categories/")[1]
         #
-        perpageCount=21
+        perpageCount=48
         pageNum=int(count/perpageCount)+1
         # if pageNum > 2:
         for i in range(pageNum):
             if urltmp !='':
-                tmpurl = urltmp+'?sortBy=top_sellers&page='+str(i+1)
-            else:
-                tmpurl = url +'?Nao='+str(21*(i+1))+'&Ns=None&storeSelection=2408,2414,2409,2407,2404'
+                tmpurl = urltmp+'on/demandware.store/Sites-C21-Site/default/Search-UpdateGrid?cgid='+numbertmp+'&start='+str((i+1)*48)+'&sz=48'
+            # else:
+            #     tmpurl = url +'?Nao='+str(21*(i+1))+'&Ns=None&storeSelection=2408,2414,2409,2407,2404'
                 print(tmpurl)
                 tmpList.append(tmpurl)
 
     savedf=pd.Series(tmpList)
-    savedf.to_csv("pagnition/output/homedepot_com_bulklist.csv",index=False)
+    savedf.to_csv("pagnition/output/c21stores_com.csv",index=False)
 
 def saveToSourceMogul():
     name = "58593450d2b2122cab550ef3"
