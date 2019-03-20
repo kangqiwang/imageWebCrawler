@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
+    <list default="true" id="4487ba6e-3ba9-491f-bdb6-50ec708d3ad3" name="Default Changelist" comment="add pagnition">
+      <change afterPath="$PROJECT_DIR$/python/server.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pagnition/pagnition.py" beforeDir="false" afterPath="$PROJECT_DIR$/pagnition/pagnition.py" afterDir="false" />
+=======
     <list default="true" id="26f4fe80-1c26-4dc1-9925-22633d2f76ac" name="Default Changelist" comment="leanr some algorithm">
       <change afterPath="$PROJECT_DIR$/python/coontin.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/python/maxresdefault.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+>>>>>>> f24a99b88516026ed335994ed8d2a0b4effe68f4
       <change beforePath="$PROJECT_DIR$/python/imageSimilarity.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/imageSimilarity.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/result.csv" beforeDir="false" afterPath="$PROJECT_DIR$/result.csv" afterDir="false" />
     </list>
@@ -15,6 +21,17 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
+<<<<<<< HEAD
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pagnition/pagnition.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="375">
+              <caret line="25" column="29" lean-forward="true" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
+              <folding>
+                <element signature="e#0#19#0" expanded="true" />
+              </folding>
+=======
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
@@ -24,10 +41,18 @@
                 <caret line="9" selection-start-line="9" selection-end-line="9" />
               </first_editor>
               <second_editor />
+>>>>>>> f24a99b88516026ed335994ed8d2a0b4effe68f4
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/spider/spiderToTA.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" column="56" lean-forward="true" selection-start-line="11" selection-start-column="56" selection-end-line="11" selection-end-column="56" />
+=======
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/python/coontin.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -36,10 +61,18 @@
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
+>>>>>>> f24a99b88516026ed335994ed8d2a0b4effe68f4
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/python/server.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="30" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
+=======
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/python/imageSimilarity.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -48,6 +81,7 @@
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
+>>>>>>> f24a99b88516026ed335994ed8d2a0b4effe68f4
             </state>
           </provider>
         </entry>
@@ -63,7 +97,15 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
+<<<<<<< HEAD
+      <find>start=24</find>
+      <find>sz=24</find>
+      <find>match</find>
+      <find>python</find>
+      <find>No%3D</find>
+=======
       <find>src_image_name</find>
+>>>>>>> f24a99b88516026ed335994ed8d2a0b4effe68f4
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -72,17 +114,32 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+<<<<<<< HEAD
+        <option value="$PROJECT_DIR$/pagnition/input/pagnitionc21store.csv" />
+        <option value="$PROJECT_DIR$/python/server.py" />
+        <option value="$PROJECT_DIR$/python/imageSimilarity.py" />
+        <option value="$PROJECT_DIR$/spider/spiderToTA.py" />
+        <option value="$PROJECT_DIR$/pagnition/pagnition.py" />
+=======
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/python/coontin.py" />
         <option value="$PROJECT_DIR$/python/imageSimilarity.py" />
+>>>>>>> f24a99b88516026ed335994ed8d2a0b4effe68f4
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
+<<<<<<< HEAD
+    <option name="x" value="75" />
+    <option name="y" value="174" />
+    <option name="width" value="1503" />
+    <option name="height" value="654" />
+=======
     <option name="x" value="64" />
     <option name="y" value="-4" />
     <option name="width" value="2497" />
     <option name="height" value="1085" />
+>>>>>>> f24a99b88516026ed335994ed8d2a0b4effe68f4
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -99,7 +156,11 @@
             <path>
               <item name="imageWebCrawler" type="b2602c69:ProjectViewProjectNode" />
               <item name="imageWebCrawler" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
+              <item name="spider" type="462c0819:PsiDirectoryNode" />
+=======
               <item name="python" type="462c0819:PsiDirectoryNode" />
+>>>>>>> f24a99b88516026ed335994ed8d2a0b4effe68f4
             </path>
           </expand>
           <select />
@@ -109,6 +170,10 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+<<<<<<< HEAD
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/pagnition" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+=======
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
@@ -116,6 +181,7 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/python" />
     </key>
+>>>>>>> f24a99b88516026ed335994ed8d2a0b4effe68f4
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -129,11 +195,56 @@
       </list>
     </option>
   </component>
+<<<<<<< HEAD
+  <component name="RunManager">
+    <configuration name="imageSimilarity" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="imageWebCrawler" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/python" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/python/imageSimilarity.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.imageSimilarity" />
+      </list>
+    </recent_temporary>
+  </component>
+=======
+>>>>>>> f24a99b88516026ed335994ed8d2a0b4effe68f4
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+<<<<<<< HEAD
+      <changelist id="4487ba6e-3ba9-491f-bdb6-50ec708d3ad3" name="Default Changelist" comment="" />
+      <created>1550486815488</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1550486815488</updated>
+    </task>
+    <task id="LOCAL-00001" summary="add pagnition">
+      <created>1551893468938</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1551893468938</updated>
+=======
       <changelist id="26f4fe80-1c26-4dc1-9925-22633d2f76ac" name="Default Changelist" comment="" />
       <created>1550539414121</created>
       <option name="number" value="Default" />
@@ -146,10 +257,76 @@
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
       <updated>1550542360131</updated>
+>>>>>>> f24a99b88516026ed335994ed8d2a0b4effe68f4
     </task>
     <option name="localTasksCounter" value="2" />
     <servers />
   </component>
+<<<<<<< HEAD
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="-2" width="1600" height="902" extended-state="6" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24839126" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32988358" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32988358" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32988358" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32988358" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.39327297" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Python Console" order="10" weight="0.3297587" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="R Graphics" order="3" />
+      <window_info anchor="right" id="R Packages" order="4" />
+    </layout>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add pagnition" />
+    <option name="LAST_COMMIT_MESSAGE" value="add pagnition" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/pagnition/input/pagnitionc21store.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="123" lean-forward="true" selection-start-line="24" selection-start-column="120" selection-end-line="24" selection-end-column="123" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pagnition/output/pagnitionNew.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="472">
+          <caret line="501" column="123" lean-forward="true" selection-start-line="501" selection-start-column="121" selection-end-line="501" selection-end-column="123" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pagnition/input/c21stores.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="86" selection-start-line="4" selection-start-column="86" selection-end-line="4" selection-end-column="86" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/python/opportunity.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="49" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="64" />
+=======
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1303" height="780" extended-state="6" />
     <editor active="true" />
@@ -185,11 +362,23 @@
             <caret line="9" selection-start-line="9" selection-end-line="9" />
           </first_editor>
           <second_editor />
+>>>>>>> f24a99b88516026ed335994ed8d2a0b4effe68f4
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/result.csv">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="15">
+          <caret line="1" column="245" lean-forward="true" selection-start-line="1" selection-start-column="229" selection-end-line="1" selection-end-column="246" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/python/imageSimilarity.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="477">
+          <caret line="38" column="54" lean-forward="true" selection-start-line="38" selection-start-column="53" selection-end-line="38" selection-end-column="54" />
+=======
         <state relative-caret-position="18">
           <caret line="1" column="19" selection-start-line="1" selection-end-line="2" />
         </state>
@@ -199,12 +388,36 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
           <caret line="57" selection-start-line="57" selection-end-line="57" />
+>>>>>>> f24a99b88516026ed335994ed8d2a0b4effe68f4
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/python/server.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="30" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pagnition/pagnition.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="29" lean-forward="true" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spider/spiderToTA.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="56" lean-forward="true" selection-start-line="11" selection-start-column="56" selection-end-line="11" selection-end-column="56" />
+=======
     <entry file="file:///usr/lib/python3.5/tkinter/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
@@ -226,6 +439,7 @@
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
+>>>>>>> f24a99b88516026ed335994ed8d2a0b4effe68f4
         </state>
       </provider>
     </entry>
