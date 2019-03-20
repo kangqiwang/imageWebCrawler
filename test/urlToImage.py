@@ -14,8 +14,8 @@ height = np.size(img1, 0)
 width = np.size(img1, 1)
 img2 = cv2.resize(img2, (width, height))
 
-cv2.imshow('img2',img2)
-cv2.imshow('imag1',img1)
+cv2.imshow('img_supplier',img2)
+cv2.imshow('imag_amazon',img1)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 
