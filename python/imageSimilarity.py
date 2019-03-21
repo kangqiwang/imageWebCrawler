@@ -11,14 +11,16 @@ from skimage import io
 
 
 def open_csv():
-    similarity_result=[]
-    supplierUrl=[]
-    amaonUrl=[]
-    sizeofDescrip=[]
+    similarity_result = []
+    supplierUrl = []
+    amaonUrl = []
+    sizeofDescrip = []
     distance = []
-    outsource=[]
-    color=[]
-    filedescripter=[]
+    outsource = []
+    color = []
+    filedescripter = []
+    nameS=[]
+    nameA=[]
     es= Elasticsearch([{'host':'localhost','port':9999}])
     res = es.search(index="us-supplier-default-010", body={"size": 100,"sort": [{"updated": {"order": "desc"}}],"query": {"bool": {"must": [{"match": {"state": "PRE_MATCHED"}}]}}})
     for element in res['hits']['hits']:
@@ -31,10 +33,12 @@ def open_csv():
 
             image1_url = element['_source']['asin']
 
-
+            nameSupplier=element['_source']['name']
             matchesDistance = element['_source']['matchDistance']
             image1_url = es.search(index="us-amazon", body={"sort": [{"created": {"order": "desc"}}], "query": {
-                "bool": {"must": [{"match": {"asin": image1_url}}]}}})['hits']['hits'][0]['_source']['amazonImage']
+                "bool": {"must": [{"match": {"asin": image1_url}}]}}})['hits']['hits'][0]['_source']
+            nameAmazon=image1_url['amazonName']
+            image1_url=image1_url['amazonImage']
             print(image1_url)
         except Exception as e:
             print('no data  ',e)
@@ -82,7 +86,7 @@ def open_csv():
                 matches = bf.knnMatch(des1, des2, k=2)
                 similarity_result.append(similarity(matches, kp2))
             except:
-                similarity_result.append('NOT_MATCHED')
+                similarity_result.append('ERROR')
             # Apply ratio test
             # img3 = cv2.drawMatchesKnn(image1,kp1,image2,kp2,good,None,flags=2)
             # plt.imshow(img3),plt.show()
@@ -109,12 +113,14 @@ def open_csv():
             image2_url:des2
         }
         filedescripter.append(dict)
+        nameS.append(nameSupplier)
+        nameA.append(nameAmazon)
         supplierUrl.append(image1_url)
         amaonUrl.append(image2_url)
         distance.append(matchesDistance)
         outsource.append(number)
         color.append(distanceColor)
-        sizeofDescrip.append(str(sys.getsizeof(des1)) +'  '+str(sys.getsizeof(des2)))
+        # sizeofDescrip.append(str(sys.getsizeof(des1)) +'  '+str(sys.getsizeof(des2)))
 
     result=pd.DataFrame({
         'supplierUrl':supplierUrl,
@@ -123,13 +129,15 @@ def open_csv():
         'similarity_result' : similarity_result,
         'distance' : distance,
         'outsource':outsource,
-        'colorSimilarity':color
+        'colorSimilarity':color,
+        'nameSupplier': nameS,
+        'nameAmazon' : nameA
     },
-        columns=['supplierUrl','amaonUrl','size','similarity_result','distance','outsource','colorSimilarity'])
-    filedescrip=pd.Series(filedescripter)
-    filedescrip.to_csv('descripter.csv')
+        columns=['amaonUrl','supplierUrl','similarity_result','distance','outsource','colorSimilarity','nameSupplier','nameAmazon'])
+    # filedescrip=pd.Series(filedescripter)
+    # filedescrip.to_csv('descripter.csv')
     # df['similarity.result'] = similarity_result
-    result.to_csv('test_data1_100_timer.csv')
+    result.to_csv('test_data1_and_NOT_MATCH.csv')
 
     # my_file=Path("python/opportunity.csv")
     # if my_file.exists():
