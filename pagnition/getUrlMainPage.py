@@ -4,12 +4,14 @@ import sys
 from urllib.parse import urlparse
 import pandas as pd
 
+from elasticsearch import Elasticsearch
+import re
 
 def getUrl():
     url = 'https://'+sys.argv[1]
     session = HTMLSession()
     response=session.get(url)
-
+    urltem=[]
     for i in response.html.absolute_links:
         try:
             domain = urlparse(i).hostname
@@ -60,7 +62,44 @@ def getUrl():
     savedf.to_csv("pagnition/generateUrl/mattel.csv", index=False)
 
 
-getUrl()
+
+def siteMap():
+    es = Elasticsearch([{
+        'host' : 'localhost',
+        'port' : '9200'
+    }])
+    urlCollection=[]
+    url ='http://'+ sys.argv[1]+'/robots.txt'
+    url='http://www.petsathome.com/sm/sitemapindex.xml'
+    session = HTMLSession()
+    response=session.get(url)
+    urlList =re.findall("(?P<url>https?://[^\s]+)</loc>", response.text)
+    for i in urlList:
+        if ".xml" in i:
+
+            session=HTMLSession()
+            response=session.get(i)
+            if response.status_code ==200:
+                urlCollection = urlCollection+ re.findall("(?P<url>https?://[^\s]+)</loc>", response.text)
+
+
+        else:
+            urlCollection.append(i)
+
+    print(urlCollection)
+
+    # print(response.text)
+
+
+    # url = 'http://http://www.petsathome.com/'  # url from to crawl
+    # logfile = 'errlog.log'  # path to logfile
+    # oformat = 'xml'  # output format
+    # crawl = pysitemap.Crawler(url=url, logfile=logfile, oformat=oformat)
+    # crawl.crawl()
+
+
+siteMap()
+# getUrl()
 
 
 
