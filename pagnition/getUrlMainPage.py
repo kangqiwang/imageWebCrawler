@@ -87,6 +87,8 @@ def siteMap():
             urlCollection.append(i)
 
     print(urlCollection)
+    savedf = pd.Series(urlCollection)
+    savedf.to_csv("pagnition/output/petsathomePagnition.csv", index=False)
 
     # print(response.text)
 
