@@ -3,6 +3,7 @@ import numpy as np
 import requests
 
 
+
 def pagnition():
     df=pd.read_csv("pagnition/input/c21stores_com.csv",usecols=['Category URL','Product Count'])
 
