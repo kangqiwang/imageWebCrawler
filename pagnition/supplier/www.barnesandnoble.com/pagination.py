@@ -21,6 +21,8 @@ def pagnition():
             #     tmpurl = url +'?Nao='+str(21*(i+1))+'&Ns=None&storeSelection=2408,2414,2409,2407,2404'
                 print(urltmp)
                 tmpList.append(urltmp)
+            if i>49:
+                break
     savedf=pd.Series(tmpList)
     savedf.to_csv("pagnition/output/barnesandnoble_com.csv",index=False)
 

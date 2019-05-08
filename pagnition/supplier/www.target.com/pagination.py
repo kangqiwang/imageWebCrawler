@@ -5,23 +5,22 @@ import requests
 
 
 def pagnition():
-    df=pd.read_csv("pagnition/input/bestbuy_com.csv",usecols=['Category URL','Product Count'])
+    df=pd.read_csv("pagnition/input/target_com.csv",usecols=['Category URL','Product Count'])
 
     tmpList=['url']
+    urltemplate= "https://www.target.com/c/-/N-"
     for url, count in zip(df['Category URL'],df['Product Count']):
         urltmp=''
         numbertmp=0
-
         perpageCount=24
         pageNum=int(count/perpageCount)+1
         for i in range(pageNum):
-            if "cp=1" in str(url):
-                urltmp = url.replace('cp=1', 'cp=' + str(i+1))
-            else:
-                urltmp=url+'&cp='+str(i+1)
+            urltmp = urltemplate+url+'?Nao='+str(i*perpageCount)
             print(urltmp)
             tmpList.append(urltmp)
+            if i>50:
+                break
     savedf=pd.Series(tmpList)
-    savedf.to_csv("pagnition/output/bestbuy_com.csv",index=False)
+    savedf.to_csv("pagnition/output/target_com.csv",index=False)
 
 pagnition()
