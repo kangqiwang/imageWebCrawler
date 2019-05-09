@@ -7,10 +7,10 @@ import pandas as pd
 
 headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0'}
 
-# response = requests.get('https://www.walmart.com/sitemap_bp1_https.xml',headers=headers)
-# with open('pagnition/xmltocsv/temw.xml','wb') as f:
-#     f.write(response.content)
-tree = ET.parse('pagnition/xmltocsv/tem.xml')
+response = requests.get('https://www.samsclub.com/sitemap_categories.xml',headers=headers)
+with open('pagnition/xmltocsv/temw.xml','wb') as f:
+    f.write(response.content)
+tree = ET.parse('pagnition/xmltocsv/temw.xml')
 root = tree.getroot()
 urls=['url']
 # for eme in root.iter():
