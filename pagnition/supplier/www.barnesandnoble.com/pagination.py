@@ -15,6 +15,8 @@ def pagnition():
         pageNum=int(count/perpageCount)+1
         for i in range(pageNum):
             # if urltmp !='':
+            if '/textbooks/' in url or '/paperback/' in url or '/bn-press/' in url:
+                break
             if i!=0:
                 urltmp = url+'?Nrpp=40&page='+str(i)
             # else:
@@ -23,6 +25,7 @@ def pagnition():
                 tmpList.append(urltmp)
             if i>49:
                 break
+    list(set(tmpList))
     savedf=pd.Series(tmpList)
     savedf.to_csv("pagnition/output/barnesandnoble_com.csv",index=False)
 

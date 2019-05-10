@@ -15,11 +15,11 @@ def pagnition():
         #     urltmp = url.split("categories/")[0]
         #     numbertmp=url.split("categories/")[1]
 
-        perpageCount=25
+        perpageCount=50
         pageNum=int(count/perpageCount)+1
         for i in range(pageNum):
             # if urltmp !='':
-            urltmp = url+'&page='+str(i)
+            urltmp = url+'&page='+str(i)+'&rpp=50'
             # else:
             #     tmpurl = url +'?Nao='+str(21*(i+1))+'&Ns=None&storeSelection=2408,2414,2409,2407,2404'
             print(urltmp)
