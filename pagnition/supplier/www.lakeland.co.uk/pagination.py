@@ -5,27 +5,26 @@ import requests
 
 
 def pagnition():
-    df=pd.read_csv("pagnition/input/christianbook_com.csv",usecols=['Category URL','Product Count','Category Name'])
+    df=pd.read_csv("pagnition/input/lakeland_co.csv",usecols=['Category URL','Product Count'])
 
     tmpList=['url']
-    for url, count, category in zip(df['Category URL'],df['Product Count'],df['Category Name']):
+    for url, count in zip(df['Category URL'],df['Product Count']):
         urltmp=''
         numbertmp=0
         # if "categories/" in str(url):
         #     urltmp = url.split("categories/")[0]
         #     numbertmp=url.split("categories/")[1]
-        perpageCount=50
+
+        perpageCount=108
         pageNum=int(count/perpageCount)+1
         for i in range(pageNum):
-            if 'Download' in category or 'eBook' in category:
-                break
             # if urltmp !='':
-            urltmp = url+'&page='+str(i)+'&rpp=50'
+            urltmp = url+'?page='+str(i)+'&pageSize=108'
             # else:
             #     tmpurl = url +'?Nao='+str(21*(i+1))+'&Ns=None&storeSelection=2408,2414,2409,2407,2404'
             print(urltmp)
             tmpList.append(urltmp)
     savedf=pd.Series(tmpList)
-    savedf.to_csv("pagnition/output/christianbook_com.csv",index=False)
+    savedf.to_csv("pagnition/output/lakeland_co.csv",index=False)
 
 pagnition()
