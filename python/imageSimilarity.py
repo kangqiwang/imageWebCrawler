@@ -8,7 +8,7 @@ from elasticsearch import Elasticsearch
 import json
 import sys
 from skimage import io
-
+import datetime
 
 def open_csv():
     similarity_result = []
@@ -22,7 +22,7 @@ def open_csv():
     nameS=[]
     nameA=[]
     es= Elasticsearch([{'host':'localhost','port':9999}])
-    res = es.search(index="us-supplier-default-010", body={"size": 100,"sort": [{"updated": {"order": "desc"}}],"query": {"bool": {"must": [{"match": {"state": "PRE_MATCHED"}}]}}})
+    res = es.search(index="us-supplier-default-010", body={"size": 100,"sort": [{"updated": {"order": "desc"}}],"query": {"bool": {"must": [{"match": {"state": "STAGING"}}]}}})
     for element in res['hits']['hits']:
         try:
             misMatched = element['_source']['stateDelta']
@@ -39,7 +39,6 @@ def open_csv():
                 "bool": {"must": [{"match": {"asin": image1_url}}]}}})['hits']['hits'][0]['_source']
             nameAmazon=image1_url['amazonName']
             image1_url=image1_url['amazonImage']
-            print(image1_url)
         except Exception as e:
             print('no data  ',e)
             image1_url='null'
@@ -179,8 +178,12 @@ def similarity(matches,kp2):
         return percent
 
 def main():
+    print("@@@@@@@@@@@@@@@@@@@@@@@@@@")
+    print(datetime.datetime.now())
     similarity_result=[]
     df=open_csv()
+    print(datetime.datetime.now())
+
     for index, row in df.iterrows():
         try:
             image1 = url_to_image(row['supplier.image'])
@@ -229,5 +232,5 @@ def colorSimilarity(imag1,imag2):
 
 
 if __name__== "__main__":
-    open_csv()
+    main()
 
