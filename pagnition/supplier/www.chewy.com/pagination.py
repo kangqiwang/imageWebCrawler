@@ -1,29 +1,36 @@
 import pandas as pd
 import numpy as np
 import requests
-
+import re
 
 
 def pagnition():
-    df=pd.read_csv("pagnition/input/chewy_com.csv",usecols=['Category URL','Product Count'])
+    df=pd.read_csv("pagnition/input/chewy_com.csv",usecols=['Category URL","Category Name","First Page","Last Page","Source Domain","Product Count'])
 
     tmpList=['url']
-    for url, count in zip(df['Category URL'],df['Product Count']):
+    for url in df['Category URL","Category Name","First Page","Last Page","Source Domain","Product Count']:
         urltmp=''
         numbertmp=0
+        if "\",\"" in str(url):
+            urltmp = url.split("\",\"")[0]
+            numbertmp=url.split("\",\"")[-1]
+
+
         # if "categories/" in str(url):
         #     urltmp = url.split("categories/")[0]
         #     numbertmp=url.split("categories/")[1]
-
         perpageCount=36
-        pageNum=int(count/perpageCount)+1
+        print(numbertmp)
+        numberId=re.findall("\d+",urltmp)[0]
+
+        pageNum=int(int(numbertmp)/perpageCount)+1
         for i in range(pageNum):
             # if urltmp !='':
-            urltmp = "https://www.chewy.com"+'&page='+str(i)
+            tmpurl = "https://www.chewy.com/s?rh=c%3A"+numberId+'&page='+str(i+1)
             # else:
             #     tmpurl = url +'?Nao='+str(21*(i+1))+'&Ns=None&storeSelection=2408,2414,2409,2407,2404'
-            print(urltmp)
-            tmpList.append(urltmp)
+            print(tmpurl)
+            tmpList.append(tmpurl)
     savedf=pd.Series(tmpList)
     savedf.to_csv("pagnition/output/chewy_com.csv",index=False)
 

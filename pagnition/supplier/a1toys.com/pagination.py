@@ -21,7 +21,7 @@ def pagnition():
             # if urltmp !='':
             urltmp = url+'&p='+str(i)
             # else:
-            #     tmpurl = url +'?Nao='+str(21*(i+1))+'&Ns=None&storeSelection=2408,2414,2409,2407,2404'
+            # tmpurl = url +'?Nao='+str(21*(i+1))+'&Ns=None&storeSelection=2408,2414,2409,2407,2404'
             print(urltmp)
             tmpList.append(urltmp)
     savedf=pd.Series(tmpList)

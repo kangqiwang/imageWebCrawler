@@ -7,7 +7,7 @@ import pandas as pd
 
 headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0'}
 
-# response = requests.get('https://www.sainsburys.co.uk/wcsstore/robots/sitemap_10151_1.xml.gz',headers=headers)
+# response = requests.get('https://www.tkmaxx.com/medias/Category-en-GBP-7258143749271186642.xml?context=bWFzdGVyfHJvb3R8MTkzODQyfHRleHQveG1sfGgzMi9oYjcvMTA1OTY1NzQxMzQzMDIueG1sfGJlOWMyODZlY2ZhNTVlYThhYWFmYzgxNzJhNzI3NDRlZTg4MGY4MTE1YWFjMzM4NTE1MGNhNGE5NTEzNzllYWU',headers=headers)
 # with open('pagnition/xmltocsv/tem.xml','wb') as f:
 #     f.write(response.content)
 tree = ET.parse('pagnition/xmltocsv/tem.xml')

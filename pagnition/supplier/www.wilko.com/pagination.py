@@ -5,27 +5,23 @@ import requests
 
 
 def pagnition():
-    df=pd.read_csv("pagnition/input/wilko_com.csv",usecols=['Category URL","Category Name","First Page","Last Page","Source Domain","Product Count'])
+    df=pd.read_csv("pagnition/input/costco_co.csv",usecols=['Category URL','Product Count'])
 
     tmpList=['url']
-    for url in df['Category URL","Category Name","First Page","Last Page","Source Domain","Product Count']:
+    for url, count in zip(df['Category URL'],df['Product Count']):
         urltmp=''
         numbertmp=0
-        if "\",\"" in str(url):
-            urltmp = url.split("\",\"")[0]
-            numbertmp=url.split("\",\"")[5]
-
-        perpageCount=60
-        pageNum=int(int(numbertmp)/perpageCount)+1
+        perpageCount=100
+        pageNum=int(int(count)/perpageCount)+1
         for i in range(pageNum):
 
             # if urltmp !='':
-            tmpurl = urltmp+'?page='+str(i)+'&pageSize=96'
+            tmpurl = url+'?page='+str(i)+'&pageSize=24'
             # else:
             #     tmpurl = url +'?Nao='+str(21*(i+1))+'&Ns=None&storeSelection=2408,2414,2409,2407,2404'
             print(tmpurl)
             tmpList.append(tmpurl)
     savedf=pd.Series(tmpList)
-    savedf.to_csv("pagnition/output/wilko_com.csv",index=False)
+    savedf.to_csv("pagnition/output/costco_co.csv",index=False)
 
 pagnition()

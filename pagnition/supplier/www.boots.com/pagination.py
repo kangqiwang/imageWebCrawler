@@ -5,28 +5,23 @@ import requests
 
 
 def pagnition():
-    df=pd.read_csv("pagnition/input/argos_co.csv",usecols=['Category URL","Category Name","First Page","Last Page","Source Domain","Product Count'])
+    df=pd.read_csv("pagnition/input/boots_com.csv",usecols=['Category URL','Product Count'])
 
     tmpList=['url']
-    for url in df['Category URL","Category Name","First Page","Last Page","Source Domain","Product Count']:
+    for url, count in zip(df['Category URL'],df['Product Count']):
         urltmp=''
         numbertmp=0
-        if "\",\"" in str(url):
-            urltmp = url.split("\",\"")[0]
-
-            numbertmp=url.split("\",\"")[-1]
-
-        perpageCount=30
-        pageNum=int(int(numbertmp)/perpageCount)+1
+        perpageCount=24
+        pageNum=int(int(count)/perpageCount)+1
         for i in range(pageNum):
 
             # if urltmp !='':
-            tmpurl = urltmp+'/opt/page:'+str(i+1)+'/'
+            tmpurl = url+'#facet:&productBeginIndex:'+str(24*(i+1))+'&orderBy:&pageView:grid&minPrice:&maxPrice:&pageSize:&'
             # else:
             #     tmpurl = url +'?Nao='+str(21*(i+1))+'&Ns=None&storeSelection=2408,2414,2409,2407,2404'
             print(tmpurl)
             tmpList.append(tmpurl)
     savedf=pd.Series(tmpList)
-    savedf.to_csv("pagnition/output/argos_co.csv",index=False)
+    savedf.to_csv("pagnition/output/boots_com.csv",index=False)
 
 pagnition()
