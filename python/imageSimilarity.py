@@ -21,8 +21,9 @@ def open_csv():
     filedescripter = []
     nameS=[]
     nameA=[]
-    es= Elasticsearch([{'host':'localhost','port':9999}])
-    res = es.search(index="us-supplier-default-010", body={"size": 100,"sort": [{"updated": {"order": "desc"}}],"query": {"bool": {"must": [{"match": {"state": "STAGING"}}]}}})
+    nameAmazon=[]
+    es= Elasticsearch([{'host':'localhost','port':6644}])
+    res = es.search(index="uk-supplier-default-011", body={"size": 100,"sort": [{"updated": {"order": "desc"}}],"query": {"bool": {"must": [{"match": {"state": "STAGING"}}]}}})
     for element in res['hits']['hits']:
         try:
             misMatched = element['_source']['stateDelta']
@@ -35,7 +36,7 @@ def open_csv():
 
             nameSupplier=element['_source']['name']
             matchesDistance = element['_source']['matchDistance']
-            image1_url = es.search(index="us-amazon", body={"sort": [{"created": {"order": "desc"}}], "query": {
+            image1_url = es.search(index="uk-amazon", body={"sort": [{"created": {"order": "desc"}}], "query": {
                 "bool": {"must": [{"match": {"asin": image1_url}}]}}})['hits']['hits'][0]['_source']
             nameAmazon=image1_url['amazonName']
             image1_url=image1_url['amazonImage']
@@ -86,6 +87,8 @@ def open_csv():
                 similarity_result.append(similarity(matches, kp2))
             except:
                 similarity_result.append('ERROR')
+
+
             # Apply ratio test
             # img3 = cv2.drawMatchesKnn(image1,kp1,image2,kp2,good,None,flags=2)
             # plt.imshow(img3),plt.show()
@@ -138,13 +141,13 @@ def open_csv():
     # df['similarity.result'] = similarity_result
     result.to_csv('test_data1_and_NOT_MATCH.csv')
 
-    # my_file=Path("python/opportunity.csv")
-    # if my_file.exists():
-    #     df=pd.read_csv('python/opportunity.csv', usecols=['supplier.image','amazon.image'])
-    #     return df
-    # else:
-    #     print('THERE ARE ERR CAN NOT FOUND FILES')
-    #     return 0
+    my_file=Path("python/opportunity.csv")
+    if my_file.exists():
+        df=pd.read_csv('python/opportunity.csv', usecols=['supplier.image','amazon.image'])
+        return df
+    else:
+        print('THERE ARE ERR CAN NOT FOUND FILES')
+        return 0
 
 def url_to_image_scikit(url):
     image=io.imread(url)
@@ -181,6 +184,7 @@ def main():
     print("@@@@@@@@@@@@@@@@@@@@@@@@@@")
     print(datetime.datetime.now())
     similarity_result=[]
+    # matches_result=[]
     df=open_csv()
     print(datetime.datetime.now())
 
@@ -207,16 +211,26 @@ def main():
             # Sort them in the order of their distance.
             bf = cv2.BFMatcher()
             matches = bf.knnMatch(des1,des2, k=2)
+            similarity_sorce=similarity(matches,kp2)
+            similarity_result.append(similarity_sorce)
 
-            similarity_result.append(similarity(matches,kp2))
+            # if similarity_sorce > 100:
+            #     matches_result.append("IMAGE_MATCHED")
+            # else:
+            #     matches_result.append("IMAGE_NOTMATCHED")
             # Apply ratio test
             # img3 = cv2.drawMatchesKnn(image1,kp1,image2,kp2,good,None,flags=2)
             # plt.imshow(img3),plt.show()
 
         else:
             similarity_result.append('None')
+
     df['similarity.result']=similarity_result
-    df.to_csv('result_NOT_MATCHED.csv',columns=['supplier.image','amazon.image','similarity.result'],index=0, header=1)
+
+    matches_result = [ "IMAGE_MATCHED" if int(socer if socer != "None" else 0)>100 else "IMAGED_NOTMACTCHED" for socer in similarity_result]
+
+    df['matched.result'] =matches_result
+    df.to_csv('result_NOT_MATCHED.csv',columns=['supplier.image','amazon.image','similarity.result','matched.result'],index=0, header=1)
 
 def colorSimilarity(imag1,imag2):
 
